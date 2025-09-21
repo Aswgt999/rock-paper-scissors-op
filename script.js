@@ -14,32 +14,36 @@ function getComputerChoice() {
 
 
 // Get user input
-function getHumanChoice() {
-    const choice = prompt("Enter Your Choice(Rock, Paper, Scissors): ");
-    return choice;
-}
+// function getHumanChoice(name) {
+//     // const choice = prompt("Enter Your Choice(Rock, Paper, Scissors): ");
+//     return name;
+// }
 
 
-function playGame() {
+// function playGame(name) {
     // Declare humanScore and computerScore as global variables to keep track of score
     let humanScore = 0;
     let computerScore = 0;
-    const rounds = 5;
+    let draws = 0;
+    // const rounds = 5;
 
     // Play a single round
-    function playRound(humanChoice, computerChoice) {
-        let h = humanChoice.trim().toLowerCase();
-        let c = computerChoice;
+    // function playRound(humanChoice, computerChoice) {
+    function playRound(name) {
+        // let h = humanChoice.trim().toLowerCase();
+        let h = name;
+        // let c = computerChoice;
+        let c = getComputerChoice();
     
         if (h === c) {
-            return;
+            draws++;
         }
 
         // Winning Conditions for human
         if (
-            h == 'rock' && c == 'scissor' ||
+            h == 'rock' && c == 'scissors' ||
             h == 'paper' && c == 'rock' ||
-            h == 'scissor' && c == 'paper'
+            h == 'scissors' && c == 'paper'
         ) {
             humanScore++;
         } else {
@@ -49,20 +53,37 @@ function playGame() {
 
 
     // play multiple rounds
-    for (let i = 1; i <= rounds; i++) {
-        alert(`Round ${i}`);
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+    // for (let i = 1; i <= rounds; i++) {
+    //     alert(`Round ${i}`);
+        // playRound(getHumanChoice(), getComputerChoice());
+    // }
+    // playRound(name, getComputerChoice());
+
 
     // Find Winner
-    console.log(humanScore + " " + computerScore);
-    if (humanScore > computerScore) {
-        alert(`Human: ${humanScore} Computer: ${computerScore}` + "\nYou Win!"); 
-    } else if (humanScore < computerScore) {
-        alert(`Human: ${humanScore} Computer: ${computerScore}` + "\nYou Lose!")
-    } else {
-        alert(`Human: ${humanScore} Computer: ${computerScore}` + "\nIt's a Draw!!")
-    }
-}
+    console.log("Human: " + humanScore + ", " + "Computer: " + computerScore);
+    // if (humanScore > computerScore) {
+    //     alert(`Human: ${humanScore} Computer: ${computerScore}` + "\nYou Win!"); 
+    // } else if (humanScore < computerScore) {
+    //     alert(`Human: ${humanScore} Computer: ${computerScore}` + "\nYou Lose!")
+    // } else {
+    //     alert(`Human: ${humanScore} Computer: ${computerScore}` + "\nIt's a Draw!!")
+    // }
+// }
 
 // playGame();
+
+/*
+For now, remove the logic that plays exactly five rounds.
+
+Create three buttons, one for each selection. 
+Add an event listener to the buttons that call your playRound function with the 
+correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
+
+Add a div for displaying results and change all of your console.logs into DOM methods.
+
+Display the running score, and announce a winner of the game once one player reaches 5 points.
+
+You will likely have to refactor (rework/rewrite) your original 
+code to make it work for this. That’s OK! Reworking old code is an important part of a programmer’s life.
+*/
