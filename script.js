@@ -1,4 +1,4 @@
-console.log("hello, World!");
+// console.log("hello, World!");
 
 // Get the computer to pick rock, paper or scissors randomly
 function getComputerChoice() {
@@ -27,9 +27,20 @@ function getComputerChoice() {
     let draws = 0;
     // const rounds = 5;
 
+    let runningScore = document.createElement('div');
+    runningScore.id = "current_score";
+    document.body.appendChild(runningScore);
+    runningScore.textContent = `Human: ${humanScore}, Computer: ${computerScore}, Draws: ${draws}`
+
+
     // Play a single round
     // function playRound(humanChoice, computerChoice) {
     function playRound(name) {
+        // let humanScore = 0;
+        // let computerScore = 0;
+        // let draws = 0;
+
+
         // let h = humanChoice.trim().toLowerCase();
         let h = name;
         // let c = computerChoice;
@@ -40,7 +51,7 @@ function getComputerChoice() {
         }
 
         // Winning Conditions for human
-        if (
+        else if (
             h == 'rock' && c == 'scissors' ||
             h == 'paper' && c == 'rock' ||
             h == 'scissors' && c == 'paper'
@@ -49,6 +60,18 @@ function getComputerChoice() {
         } else {
             computerScore++;
         }
+
+        // console.log("Human: " + humanScore + ", Computer: " + computerScore + ", Draws: " + draws);
+
+        let runningScore = document.getElementById("current_score");
+        // if (!runningScore) {
+        //     runningScore = document.createElement('div');
+        //     runningScore.id = "current_score";
+        //     document.body.appendChild(runningScore);
+        // }
+        runningScore.textContent = `Human: ${humanScore}, Computer: ${computerScore}, Draws: ${draws}`
+         
+
     }
 
 
@@ -61,7 +84,7 @@ function getComputerChoice() {
 
 
     // Find Winner
-    console.log("Human: " + humanScore + ", " + "Computer: " + computerScore);
+    // console.log("Human: " + humanScore + ", " + "Computer: " + computerScore);
     // if (humanScore > computerScore) {
     //     alert(`Human: ${humanScore} Computer: ${computerScore}` + "\nYou Win!"); 
     // } else if (humanScore < computerScore) {

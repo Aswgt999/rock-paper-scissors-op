@@ -1,0 +1,13 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin: 20px;
+}
+
+#current_score {
+    background-color: black;
+    color: white;
+}
